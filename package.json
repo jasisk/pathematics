@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/scottcorgan/pathematics",
   "dependencies": {
-    "pathetic": "~0.3.1",
-    "reverend": "~0.2.0"
+    "path-to-regexp": "^1.1.1",
+    "pathetic": "~0.3.1"
   },
   "devDependencies": {
     "mocha": "~1.18.2",

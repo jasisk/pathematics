@@ -1,5 +1,5 @@
 var pathetic = require('pathetic');
-var reverend = require('reverend');
+var path2regexp = require('path-to-regexp');
 
 var pathematics = module.exports = function (map, url) {
   var parse = function (url) {
@@ -8,7 +8,7 @@ var pathematics = module.exports = function (map, url) {
   }
   
   function replaceSegments (segment) {
-    var url = reverend(segment.value, segment.params);
+    var url = path2regexp.compile(segment.value)(segment.params);
     
     return (url === '') ? undefined : url;
   }
@@ -18,7 +18,7 @@ var pathematics = module.exports = function (map, url) {
     var parsedUrl = replaceSegments(segment);
     
     return (!parsedUrl) ? {} : {
-      url: reverend(segment.value, segment.params),
+      url: path2regexp.compile(segment.value)(segment.params),
       meta: segment._originalValue
     }
   };
